@@ -100,7 +100,7 @@ Resources:
         CPUCredits:
           !If [IsBurstableInstanceType, unlimited, !Ref "AWS::NoValue"]
       IamInstanceProfile: !Ref "WebAppInstanceProfile"
-      ImageId: !Ref "ImageId"
+      ImageId: "ami-07688a0075beb980e"
       InstanceType: !Ref "InstanceType"
       KeyName: !Ref "KeyPairName"
       NetworkInterfaces:
@@ -116,7 +116,7 @@ Resources:
         - Key: Environment
           Value: !Sub "${ProjectId}-WebApp${Stage}"
         - Key: Name
-          Value: !Sub "${ProjectId}-WebApp${Stage}"
+          Value: !Sub "${ProjectId}-Bombo"
       LaunchTemplate:
         LaunchTemplateId: !Ref "WebApp01LaunchTemplate"
         Version: !GetAtt "WebApp01LaunchTemplate.LatestVersionNumber"
